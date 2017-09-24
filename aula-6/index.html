@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuejs do jeito ninja!</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+        <!-- Aplica algo a tag html -->
+        <!-- coloca dentro da tag os atributos que estiverem na var(data) -->
+        <img v-bind:src="imagem" v-bind:alt="alt">
+        
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                titulo: 'Vuejs do jeito ninja!',
+                imagem: 'http://vue-newsletter.com/vue-newsletter.png',
+                alt: "Vuejs is aweasome"
+            }
+        });
+    </script>
+    
+</body>
+</html>

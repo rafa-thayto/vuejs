@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 02 - Vuejs do jeito ninja</title>
+</head>
+<body>
+    <!-- No Vue.js, diretivas são códigos que vc implementa 
+        dentro de uma tag / markup html vuejs interpreta as 
+        diretivas. 
+        diretivas no vuejs sempre começam com "v"-->
+    <div id="app" v-model v-if v-else v-for v-...>
+        <h1> {{ titulo }} </h1>
+    </div>
+    
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                titulo: "Aula 02 - Vuejs do jeito ninja!"
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 01 - Vuejs do jeito ninja</title>
+</head>
+<body>
+    <!-- Para fazer o app funcionar é necessário estabelecer 
+        um elemento -->
+    <!-- Todo o app funciona dentro da tag definida -->
+    <div id="app">
+        <!-- Variável, para fazer impressão é necessário 
+            utilizar duas chaves {{}} -->
+        <h1>{{ titulo }}</h1>
+    </div>
+    
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        // Padrão do vue
+        var app = new Vue({
+            // el é o element que é onde você define o 
+            //elemento pai do seu app
+            el: "#app",
+            // é onde vão estar nossas variáveis
+            data: {
+                // var titulo
+                titulo: "Aula 01 - Vuejs do jeito ninja"
+            }
+        });
+    </script>
+</body>
+</html>
