@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuejs do jeito ninja!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+</head>
+<body>
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+        <button class="btn" v-bind:class="btnClassLimpar" :style="btnStyleLimpar">LIMPAR</button>
+        <button class="btn" v-bind:class="btnClassEnviar" :style="btnStyleEnviar">ENVIAR</button>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                titulo: 'Vuejs do jeito ninja!',
+                btnClassLimpar: {
+                    'btn-danger': true,
+                    'btn-sm': true
+                },
+                btnClassEnviar: [
+                    'btn-primary', { 'btn-lg': false }
+                ],
+                btnStyleEnviar: [
+                    {'font-size': '50px'},
+                    {'text-transform': 'lowercase'}
+                ],
+                
+                btnStyleLimpar: {
+                    'font-size': '10px'
+                }
+                    
+            }
+        });
+    </script>
+    
+</body>
+</html>

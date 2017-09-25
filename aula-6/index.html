@@ -5,13 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vuejs do jeito ninja!</title>
+
+    <!-- É possível dar bind no css inline -->
+    <style>
+        .red {
+            color:red;
+        }
+        .green {
+            color:green;
+        }
+    </style>
+    
 </head>
 <body>
     <div id="app">
         <h1>{{ titulo }}</h1>
         <!-- Aplica algo a tag html -->
-        <!-- coloca dentro da tag os atributos que estiverem na var(data) -->
-        <img v-bind:src="imagem" v-bind:alt="alt">
+        <!-- coloca dentro da tag os atributos que estiverem na var(data) 
+            ao invés de usar v-bind pode-se colocar somente ":"-->
+        <!-- <img :src="imagem" v-bind:alt="alt"> -->
+
+        <p :class="classHtml">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam magnam qui nam corporis itaque nostrum, nihil quas est perspiciatis accusantium fugiat, possimus aliquam? Praesentium quae sequi consequuntur, perspiciatis animi quibusdam.</p>
         
     </div>
 
@@ -22,8 +36,9 @@
             el: '#app',
             data: {
                 titulo: 'Vuejs do jeito ninja!',
-                imagem: 'http://vue-newsletter.com/vue-newsletter.png',
-                alt: "Vuejs is aweasome"
+                // imagem: 'http://vue-newsletter.com/vue-newsletter.png',
+                // alt: "Vuejs is aweasome"
+                classHtml: 'red'
             }
         });
     </script>
