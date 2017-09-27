@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuejs do jeito ninja!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+</head>
+<body>
+    <div id="app">
+        <h1>{{ titulo }}</h1>
+        <ul>
+            <!-- Para criar filtros utilizamos pipes -->
+            <!-- toUpperCase('a', 'b') -->
+            <li v-for="usuario in usuarios"> {{ usuario.nome | truncate('10') }}</li>
+        </ul>
+        <form action="http://google.com">
+            <button class="btn btn-primary" @click.prevent.stop="enviar()">Enviar</button>
+        </form>
+    </div>
+    
+    <script src="https://unpkg.com/vue"></script>
+    
+    <script>
+        var app = new Vue({
+            el: '#app',
+
+            data: {
+                titulo: 'Vuejs do jeito ninja!',
+                usuarios: [
+                    { nome: 'Jon Snow' },
+                    { nome: 'Tyrion Lannister' },
+                    { nome: 'Daenerys Tagaryen' }
+                ]
+            },
+
+            /* Filtros...
+            Filtros servem para customizar as variáveis que
+            temos na tela */
+            filters: {
+                toUpperCase(str/*, param1, param2*/) {
+                    // console.log('param1', param1);
+                    // console.log('param2', param2);
+                    return str.toUpperCase();
+                },
+                
+                // Corta a string do tamanho desejado
+                truncate(str, length) {
+                    var output = str;
+                    if (output.length > length) {
+                        output = str.substring(0, length) + ' ...';
+                    }
+                    return output;
+                }
+            },
+            
+            methods: {
+                enviar() {
+                    alert('Enviado!');
+                }
+            }
+        });
+    </script>
+    
+</body>
+</html>
