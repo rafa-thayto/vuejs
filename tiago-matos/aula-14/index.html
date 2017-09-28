@@ -17,7 +17,7 @@
         <br><br><br><br><br><br><br>
         <navbar></navbar>
         <br><br><br>
-        <menu-bar></menu-bar>
+        <menu-bar :items="[{ label: 'A empresa'}, { label: 'Serviços'}]"></menu-bar>
     </div>
 
     <template id="nav">
@@ -29,7 +29,8 @@
                             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <menu-bar></menu-bar>
+                <menu-bar v-bind:items="topNav"
+                @emit-click="getLink"></menu-bar>
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -40,14 +41,8 @@
 
     <template id="menu">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
+            <li v-for="(item, index) in items" class="nav-item">
+                <a @click.stop.prevent="emitClick(index)" class="nav-link" href="#">{{ item.label }}</a>
             </li>
         </ul>
     </template>
@@ -56,23 +51,53 @@
 
     <script>
         Vue.component('navbar', {
-            template: '#nav'
+            template: '#nav',
+            /* Dentro de component o data(local onde 
+            armazenamos variáveis em vue) possui a 
+            peculiaridade de ter que ter uma função e 
+            retornar o objeto */
+            data() {
+                return {
+                    topNav: [ {label: 'Home'}, {label:'Link'}, {label: 'Disabled'}]
+                }
+            },
+            methods: {
+                getLink(index){
+                    alert(this.topNav[index].label);
+                }
+            }
         });
-        // Sempre utilizar letras minusculas e traços 
-        // para tentar seguir o padrao html
-        // ESTE É UM COMPONENT GLOBAL
-        // FAZER A INSTÂNCIA DELE ANTES DA APLICAÇÃO
+
         Vue.component('menu-bar', {
-            /* Ao invés de fazer isso: */
-            // template: '<ul><li>Item 1</li><li>Item 2</li></ul>'
-            /* FAZER ISSO É MAIS FACIL A MANUTENÇÃO */
-            template: '#menu'
+            template: '#menu',
+            // formas de declarar props
+            /* Forma basica */
+            // props: ['items']
+            
+            /* Forma melhor de passar o props */
+            props: {
+                items: {
+                    // Tipos de dados e forma de declarar
+                    //type: String | Array | Object | Boolean,
+                    // type:['String', 'Array', 'Object', 'Boolean'],
+                    type: Array,
+                    required: true
+                    // required: true,
+                    // default: []
+                }
+            },
+            methods: {
+                emitClick(index) {
+                    this.$emit('emit-click', index);
+                }
+            }
         });
         var app = new Vue({
             el: '#app',
 
             data: {
-                titulo: 'Vuejs do jeito ninja!'
+                titulo: 'Vuejs do jeito ninja!',
+                
             },
 
         });
