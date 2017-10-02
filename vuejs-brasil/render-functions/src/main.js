@@ -1,43 +1,29 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import App from './App'
+import App from './App.vue'
 
-Vue.config.productionTip = false
-
-/* eslint-disable no-new */
 new Vue({
   el: '#app',
-  /* FORMAS DE RENDERIZAR */
   // render: h => h(App)
-  
-  // template: '<App/>',
-  // components: { App }
 
-  // Bem mais interessante dessa forma
-  render (h) {
+  // h é um shorthand para createElement
+  render(h) {
     return h(App)
   }
-
-/* 
-  render (createElement) {
-    // o createElement recebe 3 parâmetros
-    // 1 = tag html; 2 = options; 3 = array de filhos
-    // NÃO É RECOMENDÁVEL
-    return createElement('h1', {
+  /* render(createElement) {
+    // createElement recebe 3 parâmetros
+    // 1: tag html; 2: propriedades; 3: array de filhos
+    return createElement('div', {
       attrs: {
-        id: 'rafael'
-      }
-      // Quando não tiver nenhum array de filhos você pode tirar o
-      // domProps e inserir ele diretamente
+        id: 'Rafael'
+      },
+      // Quando você não tiver um array de filhos, você pode tirar o
+      // dom props e colocar direto
       // domProps: {
       //   innerHTML: 'Hello World'
       // }
     }, [
-      createElement('h1', 'Hello from h1'),
-      createElement('p', 'Hello from paragraphy')
+      createElement('h1', 'Hello World from h1'),
+      createElement('p', 'Hello from paragrapher'),
     ])
-  }
- */
-  /* O "h" é um shorthand para $createElement*/
+  } */
 })
