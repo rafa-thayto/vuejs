@@ -1,13 +1,34 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+/*
+ * Há 3 tipos de render function
+ * - Template
+ * - Hyperscript
+ * - JSX
+ */
 new Vue({
   el: '#app',
   // render: h => h(App)
 
   // h é um shorthand para createElement
+  // render(h) {
+  //   return h(App)
+  // }
+
+  methods: {
+    hello() {
+      alert('Hello')
+    }
+  },
+  
   render(h) {
-    return h(App)
+    // no jsx você vai retornar O HTML 
+    return (
+      <div>
+        <h1 on-click={this.hello}>Hello From JSX</h1>
+      </div>
+    )
   }
   /* render(createElement) {
     // createElement recebe 3 parâmetros
