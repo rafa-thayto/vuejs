@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aula 03 - Vuejs do jeito ninja</title>
+</head>
+<body>
+    <div id="app">
+        <h1 v-if="status">{{ titulo[0] }}</h1>
+        <h1 v-else-if="teste">{{ titulo[1] }}</h1>
+        <h1 v-else>salve</h1>
+    </div>
+    
+    <script src="https://unpkg.com/vue"></script>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                status: false,
+                teste: true,
+                titulo: [
+                    "[0]Aula 03 - Vuejs do jeito ninja",
+                    "[1]Aula 03 - Vuejs do jeito ninja",
+                    "[2]Aula 03 - Vuejs do jeito ninja"
+                ]
+            }
+        });
+    </script>
+</body>
+</html>

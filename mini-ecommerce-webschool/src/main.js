@@ -7,8 +7,4 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   render: h => h(App)
-  // render (h) {
-  //   return h(App)
-  // }
-
 })
