@@ -6,17 +6,17 @@
   </head>
   <body>
     <div id="app">
-      <ul>
-        <li v-for="(time, index) in times">
+      <ul class="container">
+        <li v-for="(time, index) in times" class="">
           {{index + 1}} {{time.nome}}<img :src="time.escudo">
         </li>
       </ul>
-      <ul>
+      <!-- <ul>
         <li v-for="x in 100">{{x}}</li>
       </ul>
       <ul>
         <li v-for="(valor, chave, index) in alfabeto">{{index}} - {{chave}} : {{valor}}</li>
-      </ul>
+      </ul> -->
     </div>
     <script src="/dist/build.js"></script>
   </body>

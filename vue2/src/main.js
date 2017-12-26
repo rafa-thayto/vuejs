@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import {Time} from './time'
+import 'bootstrap/dist/css/bootstrap.css'
 
 new Vue({
   el: '#app',
